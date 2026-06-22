@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div-form">
+        <form id="form-pessoa">
+            <label for="marca">Marca do veículo </label>
+            <input type="text" name="marca" id="marca" required>
+
+            <label for="modelo"> Modelo do veículo </label>
+            <input type="text" name="modelo" id="modelo" required>
+                <br>
+
+            <label for="placa"> Placa do veículo </label>
+            <input type="text" name="placa" id="placa" required maxlength="7">
+
+            <label for="fabricacao"> Ano do veículo </label>
+            <input type="number" name="fabricacao" id="fabricacao" required>
+                <br>
+
+            <label for="valor"> Valor do veículo </label>
+            <input type="number" name="valor" id="valor" required>
+                <br>
+                <br>
+                
+            <label for="combustivel"> Tipo de combustível usado </label>
+                <br>
+            <label>Gasolina</label>
+            <input type="radio" name="gasolina" id="gasolina" required>
+
+            <label>Etanol</label>
+            <input type="radio" name="etanol" id="etanol" required>
+
+            <label>Biocombustíveis</label>
+            <input type="radio" name="biocombustivel" id="biocombustivel" required>
+
+            <label>Híbridos</label>
+            <input type="radio" name="hibrido" id="hibrido" required>
+
+            <label>Elétricos</label>
+            <input type="radio" name="eletrico" id="eletrico" required>
+                <br>
+                <br>
+
+            <button type="submit" name="submit" id="submit"> Calcular </button>
+            <button type="reset"> Limpar formulário </button>
+        </form>
+
+        <div id="divResultado">
+
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
