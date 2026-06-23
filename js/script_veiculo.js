@@ -10,7 +10,8 @@ Caso o ano de fabricação do veículo seja maior que 20 anos, ele está isento 
 
 */
 
-import * as funcs from "./script_calculo"
+import * as funcs from "./script_calculo.js"
+let contador = 1;
 
 const formVeiculo = document.querySelector("#form-veiculo");
 const resultado = document.querySelector("#divResultado");
@@ -28,14 +29,24 @@ formVeiculo.addEventListener('submit', (evt) => {
     
     const combustivel = dados.get("combustivel");
 
-    funcs.calcularSeguro(valorVeiculo);
-    funcs.calcularIPVA(valorVeiculo, combustivel, anoFabricacao);
+    const valorSeguro = funcs.calcularSeguro(valorVeiculo);
+    
+    const valorIPVA = funcs.calcularIPVA(valorVeiculo, combustivel, anoFabricacao);
 
-    resultado.innerHTML = `
-        <p>a. Total de pessoas: ${marca}</p>
-        <p>b. Média salarial masculina: R$ ${modelo}</p>
-        <p>c. Mulheres com renda entre R$ 1000 e R$ 3000: ${placa}</p>
-        <p>d. Homens com salário ≥ R$ 2000: ${anoFabricacao}% | Mulheres com salário ≥ R$ 2000: %</p>
-        <p>d. Homens com salário ≥ R$ 2000: ${valorVeiculo}% | Mulheres com salário ≥ R$ 2000: %</p>
+    contador ++
+    resultado.innerHTML += `
+    <br>
+        ================ Dados do Veículo${contador} ================    <br>
+        Marca do Carro: ${marca} <br>
+        Modelo do Veículo: ${modelo} <br>
+        Placa do Veículo: ${placa} <br>
+        Tipo de Combustível: ${combustivel} <br>
+        Ano de Fabricação: ${anoFabricacao} <br>
+        Valor do Veículo: R$ ${valorVeiculo} <br>
+        <br><br>
+        ================ Cálculo do Seguro e IPVA ================ <br>
+        Valor do Seguro: R$ ${valorSeguro} <br>
+        Valor do IPVA: R$ ${valorIPVA} <br>
+        <br><br>
     `;
 })

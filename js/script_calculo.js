@@ -1,12 +1,10 @@
-export * as funcs from "./script_calculo.js";
-
-function calcularSeguro(valorVeiculo) {
+export function calcularSeguro(valorVeiculo) {
     return valorVeiculo * 0.10;
 }
 
-function calcularIPVA(valorVeiculo, combustivel, anoFabricacao) {
+export function calcularIPVA(valorVeiculo, combustivel, anoFabricacao) {
     if (anoFabricacao < 2004) {
-        return 0; // Isento de IPVA
+        return 0;
     }
 
     let taxa = 0;
@@ -18,13 +16,13 @@ function calcularIPVA(valorVeiculo, combustivel, anoFabricacao) {
         case 'etanol':
             taxa = 0.15;
             break;
-        case 'biocombustiveis':
+        case 'biocombustivel':
             taxa = 0.10;
             break;
-        case 'hibridos':
+        case 'hibrido':
             taxa = 0.08;
             break;
-        case 'eletricos':
+        case 'eletrico':
             taxa = 0.02;
             break;
         default:
@@ -33,4 +31,3 @@ function calcularIPVA(valorVeiculo, combustivel, anoFabricacao) {
 
     return valorVeiculo * taxa;
 }
-
