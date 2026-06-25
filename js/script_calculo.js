@@ -1,3 +1,15 @@
+/*
+O Seguro do carro corresponde a 10% do valor do veículo
+O IPVA é calculado com base no combustível utilizado:
+20% de taxa para gasolina
+15% de taxa para etanol
+10% para biocombustíveis
+8% para híbridos
+2% para elétricos
+Caso o ano de fabricação do veículo seja maior que 20 anos, ele está isento de ipva.
+
+*/
+
 export function calcularSeguro(valorVeiculo) {
     return valorVeiculo * 0.10;
 }
