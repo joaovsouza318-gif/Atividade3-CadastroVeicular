@@ -18,10 +18,29 @@ formVeiculo.addEventListener('submit', (evt) => {
         combustivel: dados.get("combustivel")
     }
 
-    const valorSeguro = funcs.calcularSeguro(valorVeiculo);
-    const valorIPVA = funcs.calcularIPVA(valorVeiculo, combustivel, anoFabricacao);
+    const valorSeguro = funcs.calcularSeguro(veiculo.valorVeiculo);
+    const valorIPVA = funcs.calcularIPVA(veiculo.valorVeiculo, veiculo.combustivel, veiculo.anoFabricacao);
 
-    addVeiculo(veiculo)
+    const listaVeiculos = () => {
+        resultado.innerHTML = ''
+        veiculos.forEach((elem, i) => {
+
+            resultado.innerHTML += `
+            <br>
+                ================ Dados do Veículo ${i+1} ================    <br>
+                Marca do Carro: ${elem.marca} <br>
+                Modelo do Veículo: ${elem.modelo} <br>
+                Placa do Veículo: ${elem.placa} <br>
+                Tipo de Combustível: ${elem.combustivel} <br>
+                Ano de Fabricação: ${elem.anoFabricacao} <br>
+                Valor do Veículo: R$ ${elem.valorVeiculo} <br>
+                <br>
+                Valor do Seguro: R$ ${valorSeguro} <br>
+                Valor do IPVA: R$ ${valorIPVA} <br>
+                <br>
+            `;
+        })
+    }
 
     const addVeiculo = (objVeiculo) => {
         veiculos.push(objVeiculo)
@@ -29,24 +48,5 @@ formVeiculo.addEventListener('submit', (evt) => {
         listaVeiculos()
     }
 
-    const listaVeiculos = () => {
-        resultado.innerHTML = ''
-        veiculos.forEach((elements,i)=>{
-            resultado.innerHTML += `
-            <br>
-                ================ Dados do Veículo ${contador} ================    <br>
-                Marca do Carro: ${marca} <br>
-                Modelo do Veículo: ${modelo} <br>
-                Placa do Veículo: ${placa} <br>
-                Tipo de Combustível: ${combustivel} <br>
-                Ano de Fabricação: ${anoFabricacao} <br>
-                Valor do Veículo: R$ ${valorVeiculo} <br>
-                <br><br>
-                ================ Cálculo do Seguro e IPVA ================ <br>
-                Valor do Seguro: R$ ${valorSeguro} <br>
-                Valor do IPVA: R$ ${valorIPVA} <br>
-                <br><br>
-            `;
-        })
-    }   
+    addVeiculo(veiculo)
 })
